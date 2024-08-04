@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="emerald">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ app_name }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body class="min-h-screen flex flex-col">
+    <header class="text-base-content">
+        <div class="navbar container mx-auto">
+            <div class="flex-1">
+                <a class="btn btn-ghost normal-case text-xl">IW Chatbot</a>
+            </div>
+            <div class="flex-none">
+                <ul class="menu menu-horizontal px-1">
+                    <div class="dropdown">
+                        <div tabindex="0" role="button" class="btn m-1">Settings</div>
+                        <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+                            <select id="chatHistoryLenSelect" class="select w-full max-w-xs">
+                                <option disabled selected>Chat history length:</option>
+                                <option value="2">2</option>
+                                <option value="10" selected>10</option>
+                                <option value="unlimited">Unlimited</option>
+                            </select>
+                        </ul>
+                    </div>
+                    <a href="{{ swagger_url }}" target="_blank" class="btn m-1">API</a>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto flex-grow p-4" role="main">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="footer footer-center p-4 bg-base-200 text-base-content">
+        <div>
+            <p>Copyright © 2024 - No pixels were harmed in the making of this site. :)</p>
+        </div>
+    </footer>
+
+    {% block scripts %}{% endblock %}
+</body>
+</html>
